@@ -1,0 +1,7 @@
+{
+  "name": "APPTav2024-v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
