@@ -12,6 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'recover-pass',
+    title: 'Recuperar clave',
+    loadChildren: () => import('./pages/recover-pass/recover-pass.module').then(m => m.RecoverPageModule),
+  },
+  {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
   },

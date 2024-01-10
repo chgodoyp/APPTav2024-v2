@@ -7,11 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-recover-pass',
+  templateUrl: './recover-pass.page.html',
+  styleUrls: ['./recover-pass.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RecoverPage implements OnInit {
 
   credentials!: FormGroup;
 
@@ -32,37 +32,26 @@ export class LoginPage implements OnInit {
   }
 
   get email(){
-    return this.credentials?.get('email');
+    return this.credentials?.get('username');
   }
 
-  get password(){
-    return this.credentials?.get('password');
-  }
+
   
   createForm(){
     this.credentials = this.formBuilder.group({
-      email: ['',[Validators.required,Validators.email]],
-      password: ['',[Validators.required,
-                    Validators.minLength(6),
-                    Validators.pattern(this.passPattern)]]
+      'username':[null,Validators.required],
+
     });
   }
 
 
   async login(){
-    const loading = await this.loadingCtrl.create();
-    await loading.present();
+   
+    this.alertPresent('Recuperar clave','Correo de recuperación enviado');
+    this.router.navigateByUrl('/welcome');
 
-    const user = await this.authService.login(this.credentials.value.email,this.credentials.value.password);
-    await loading.dismiss();
 
-    if(user){
-      this._localStorage.saveUserProfileFromDB();
-      this.router.navigateByUrl('/welcome');
-    }
-    else{
-      this.alertPresent('Login fallido','Inténtelo más tarde.');
-    }
+
   }
 
   async alertPresent(header:string,message:string){
