@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      login
+      Login
     </ion-title>
     <ion-buttons slot="end">
       <ion-back-button>Volver</ion-back-button>
@@ -42,13 +42,13 @@
             <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
             <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email no válido</ion-note>
           </ion-item>
-      
+
           <ion-item class="ion-margin-bottom">
             <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
             <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Password debe ser
               de 6 caracteres mínimo, incluyendo números</ion-note>
           </ion-item>
-      
+
           <ion-button expand="block" type="submit" [disabled]="!credentials.valid">Ingresar</ion-button>
         </form>
         <div class="ion-text-center">
