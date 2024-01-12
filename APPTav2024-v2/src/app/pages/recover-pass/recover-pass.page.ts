@@ -36,7 +36,7 @@ export class RecoverPage implements OnInit {
   }
 
 
-  
+
   createForm(){
     this.credentials = this.formBuilder.group({
       'username':[null,Validators.required],
@@ -46,9 +46,9 @@ export class RecoverPage implements OnInit {
 
 
   async login(){
-   
+
     this.alertPresent('Recuperar clave','Correo de recuperación enviado');
-    this.router.navigateByUrl('/welcome');
+    this.router.navigateByUrl('/login');
 
 
 
