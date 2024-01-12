@@ -1,3 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recuperar contraseña
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button>Volver</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
   <ion-grid class="bigGrid">
     <ion-row class="ion-justify-content-center ion-align-items-center">
@@ -8,7 +19,7 @@
         <div class="ion-margin-bottom">
           <img src="./../../../assets/img/logoColores.png" alt="logo">
         </div>
- 
+
         <form [formGroup]="credentials" (ngSubmit)="login()">
           <ion-item class="ion-margin-bottom">
 
@@ -17,13 +28,13 @@
 
           </ion-item>
 
-      
+
           <ion-button expand="block" type="submit" [disabled]="!credentials.valid">Recuperar</ion-button>
         </form>
         <div class="ion-text-center">
           <p>¿No tienes cuenta? Crea una <a [routerLink]="['/register']">aquí</a></p>
         </div>
- 
+
       </ion-col>
     </ion-row>
   </ion-grid>
