@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
-const redirectLoggedInToWelcome = () => redirectLoggedInTo(['welcome']);
 
 const routes: Routes = [
   {
@@ -12,29 +9,26 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+    path: 'recover-pass',
+    title: 'Recuperar clave',
+    loadChildren: () => import('./pages/recover-pass/recover-pass.module').then(m => m.RecoverPageModule),
   },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
-    ...canActivate(redirectLoggedInToWelcome)
   },
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule),
-    ...canActivate(redirectLoggedInToWelcome)
   },
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
-    ...canActivate(redirectLoggedInToWelcome)
   },
   {
     path: 'welcome',
     title: 'Bienvenida',
     loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomePageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
   },
 
   {
