@@ -13,9 +13,10 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Inicio', url: '/welcome', icon: 'home' },
-    { title: 'Perfil', url: '/profile', icon: 'person' },
+    //{ title: 'Perfil', url: '/profile', icon: 'person' },    
     //{ title: 'Retornar a mi hogar', url:'/return-trip', icon: 'car'},
     //{ title: 'Nosotros', url: '/about', icon: 'people' },
+    { title: 'Clima', url: '/weather', icon: 'umbrella'},
   ];
 
   username: string;
