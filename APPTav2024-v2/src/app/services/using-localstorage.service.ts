@@ -45,11 +45,10 @@ export class UsingLocalstorageService {
     return localStorage?.getItem('userType');
   }
 
-  /*nuevo
+  
   getEmail():string {
     return localStorage?.getItem('email');
   }
-  */
 
   clearLocalStorage() {
     localStorage.clear();

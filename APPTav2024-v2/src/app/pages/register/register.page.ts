@@ -44,8 +44,9 @@ export class RegisterPage implements OnInit {
   }
 
   createForm(){
+    var validadorEmail= RegisterPage.checkEmail;
     this.registerCredentials = this.formBuilder.group({
-      email: ['',[Validators.required,Validators.email/*, RegisterPage.checkEmail*/]],
+      email: ['',[Validators.required,Validators.email,RegisterPage.checkEmail]],
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       gender: ['', Validators.required],
@@ -56,6 +57,7 @@ export class RegisterPage implements OnInit {
       userType: ['', Validators.required]
     });
 
+    console.log ('validadorEmail', validadorEmail)
     //this.email= this.registerCredentials.controls['email'];
   }
 
@@ -85,21 +87,21 @@ export class RegisterPage implements OnInit {
     alert.present();
   }
 
-  /*static checkEmail(control: FormControl){
+  static checkEmail(control: FormControl){
     var requiredDomains = ["duocuc.cl","profesor.duoc.cl"];
     var lowercaseValue = control.value.toLowerCase();
     var providedDomain = lowercaseValue.substr(lowercaseValue.indexOf('@')+1);
-    var returnVal: any;
+    var returnVal = false;
 
     for (var i = 0; i < requiredDomains.length; i++) {
       if(requiredDomains[i] != providedDomain) {
-        returnVal =  {"invalid_domain": true};
+        returnVal = true;
         i = requiredDomains.length;
       }
     }
     return returnVal;
   }
-  */
+  
 
 
 }
