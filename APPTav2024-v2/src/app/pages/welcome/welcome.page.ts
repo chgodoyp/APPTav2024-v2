@@ -14,7 +14,8 @@ export class WelcomePage implements OnInit {
   message: string = "Hola";
   loading : HTMLIonLoadingElement;
   userType: string = "";
-  
+  //email: string;
+
   constructor(private _localStorage: UsingLocalstorageService,
     private loadingCtrl: LoadingController) { }
 
@@ -35,7 +36,7 @@ export class WelcomePage implements OnInit {
     this.gender = this._localStorage.getGender();
     if (this.gender == "female") {
       this.message = "Bienvenida " + this.username;
-    } 
+    }
     else {
       this.message = "Bienvenido " + this.username;
     }
@@ -57,5 +58,14 @@ export class WelcomePage implements OnInit {
 
     await this.loading.present();
   }
+
+  /*setDiferenciacion() {
+    this.email = this._localStorage.getEmail();
+    if(this.email contain)
+  }
+
+  */
+
+
 
 }

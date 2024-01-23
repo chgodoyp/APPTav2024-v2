@@ -5,7 +5,7 @@ ion-radio {
 ion-radio-group.iradioGender,
 ion-radio-group.iradioUserType {
     display: flex;
-} 
+}
 
 ion-note {
     font-size: 12px;
@@ -13,4 +13,18 @@ ion-note {
 
 img.logoTLA {
     max-width: 70%;
+}
+.color1 {color: #410a43;}
+.color2 {color: #ae0557;}
+.color3 {color: #0898ff;}
+.color4 {color: #eaecf6;}
+.color5 {color: #fffbf4;}
+
+ion-header {
+  --ion-background-color: #0898ff;
+  --ion-text-color: #fffbf4;
+}
+
+ion-content{
+  --ion-background-color: #eaecf6;
 }

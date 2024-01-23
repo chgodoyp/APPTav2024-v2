@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,7 +16,7 @@ export class RegisterPage implements OnInit {
   isNotHome = false;
 
   passPattern = "^(.{0,7}|[^0-9]*|[^a-z]*)$";
-  
+
   constructor( private router: Router,
     private _localStorage: UsingLocalstorageService,
     private authService: AuthService,
@@ -42,10 +42,10 @@ export class RegisterPage implements OnInit {
   get lastname(){
     return this.registerCredentials?.get('lastname');
   }
-  
+
   createForm(){
     this.registerCredentials = this.formBuilder.group({
-      email: ['',[Validators.required,Validators.email]],
+      email: ['',[Validators.required,Validators.email/*, RegisterPage.checkEmail*/]],
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       gender: ['', Validators.required],
@@ -55,6 +55,8 @@ export class RegisterPage implements OnInit {
                     Validators.pattern(this.passPattern)]],
       userType: ['', Validators.required]
     });
+
+    //this.email= this.registerCredentials.controls['email'];
   }
 
   async register(){
@@ -82,5 +84,22 @@ export class RegisterPage implements OnInit {
     });
     alert.present();
   }
+
+  /*static checkEmail(control: FormControl){
+    var requiredDomains = ["duocuc.cl","profesor.duoc.cl"];
+    var lowercaseValue = control.value.toLowerCase();
+    var providedDomain = lowercaseValue.substr(lowercaseValue.indexOf('@')+1);
+    var returnVal: any;
+
+    for (var i = 0; i < requiredDomains.length; i++) {
+      if(requiredDomains[i] != providedDomain) {
+        returnVal =  {"invalid_domain": true};
+        i = requiredDomains.length;
+      }
+    }
+    return returnVal;
+  }
+  */
+
 
 }
