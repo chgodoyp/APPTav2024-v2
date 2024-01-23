@@ -37,6 +37,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
     ...canActivate(redirectUnauthorizedToLogin)
   },
+
+  {
+    path: 'return-trip',
+    loadChildren: () => import('./pages/return-trip/return-trip.module').then( m => m.ReturnTripPageModule)
+  },
   {
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule),
